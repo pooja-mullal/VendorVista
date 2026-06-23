@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VendorVista – Smart Vendor Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-center">
+<div class="dashboard" style="display:flex; flex-direction:column; align-items:center;">
+
+
+    <h1 class="hero-title" style="text-align:center;">VendorVista</h1>
+    <p class="hero-subtitle" style="text-align:center;">
+        Intelligent Vendor Performance & Risk Forecasting System
+    </p>
+
+    <div class="card" style="max-width:420px; width:100%; margin-top:40px;">
+
+        <h3>Select a Vendor</h3>
+        <p style="color:#9ca3af; margin:10px 0 18px;">
+            Analyze trends and predict future vendor risks
+        </p>
+
+        <form method="get" action="/vendor">
+            <select name="vendor_name" required>
+                <option value="">Choose Vendor</option>
+                {% for vendor in vendors %}
+                    <option value="{{ vendor }}">{{ vendor }}</option>
+                {% endfor %}
+            </select>
+
+            <button class="btn primary-btn" style="width:100%; margin-top:18px;">
+                Open Dashboard →
+            </button>
+        </form>
+
+        <p style="margin-top:16px; font-size:14px; color:#9ca3af;">
+            Total Vendors Analyzed: <b>{{ total_vendors }}</b>
+        </p>
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>
